@@ -27,7 +27,7 @@ function normalizeSourceSet (data) {
 	return sourceSet;
 }
 
-class Lightbox extends Component {
+class VideoLightbox extends Component {
 	constructor (props) {
 		super(props);
 
@@ -264,6 +264,7 @@ class Lightbox extends Component {
 		const heightOffset = `${this.theme.header.height + this.theme.footer.height + thumbnailsSize
 			+ (this.theme.container.gutter.vertical)}px`;
 
+
 		return (
 			<figure className={css(this.classes.figure)}>
 				{/*
@@ -271,18 +272,25 @@ class Lightbox extends Component {
 					https://fb.me/react-unknown-prop is resolved
 					<Swipeable onSwipedLeft={this.gotoNext} onSwipedRight={this.gotoPrev} />
 				*/}
-				<img
-					className={css(this.classes.image, imageLoaded && this.classes.imageLoaded)}
-					onClick={onClickImage}
-					sizes={sizes}
-					alt={image.alt}
-					src={image.src}
-					srcSet={sourceSet}
-					style={{
-						cursor: onClickImage ? 'pointer' : 'auto',
-						maxHeight: `calc(100vh - ${heightOffset})`,
-					}}
-				/>
+				{(!image.type || image.type === 'Image'
+					? <img
+						className={css(this.classes.image, imageLoaded && this.classes.imageLoaded)}
+						onClick={onClickImage}
+						sizes={sizes}
+						alt={image.alt}
+						src={image.src}
+						srcSet={sourceSet}
+						style={{
+							cursor: onClickImage ? 'pointer' : 'auto',
+							maxHeight: `calc(100vh - ${heightOffset})`,
+						}}
+				/> : (image.type === 'Video'
+					? <video controls>
+						<source src={image.src} />
+					</video>
+					: <div></div>
+				)
+				)}
 			</figure>
 		);
 	}
@@ -365,7 +373,7 @@ class Lightbox extends Component {
 	}
 }
 
-Lightbox.propTypes = {
+VideoLightbox.propTypes = {
 	backdropClosesModal: PropTypes.bool,
 	closeButtonTitle: PropTypes.string,
 	currentImage: PropTypes.number,
@@ -399,7 +407,7 @@ Lightbox.propTypes = {
 	thumbnailOffset: PropTypes.number,
 	width: PropTypes.number,
 };
-Lightbox.defaultProps = {
+VideoLightbox.defaultProps = {
 	closeButtonTitle: 'Close (Esc)',
 	currentImage: 0,
 	enableKeyboardInput: true,
@@ -418,7 +426,7 @@ Lightbox.defaultProps = {
 	thumbnailOffset: 2,
 	width: 1024,
 };
-Lightbox.childContextTypes = {
+VideoLightbox.childContextTypes = {
 	theme: PropTypes.object.isRequired,
 };
 
@@ -463,4 +471,4 @@ const defaultStyles = {
 };
 
 
-export default Lightbox;
+export default VideoLightbox;

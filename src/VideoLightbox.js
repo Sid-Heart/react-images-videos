@@ -115,7 +115,9 @@ class VideoLightbox extends Component {
 		if (!data) return;
 		const img = new Image();
 		const sourceSet = normalizeSourceSet(data);
+		const videoBox = document.getElementById('videoPreview');
 
+		if (videoBox) videoBox.load();
 		// TODO: add error handling for missing images
 		img.onerror = onload;
 		img.onload = onload;
@@ -128,7 +130,9 @@ class VideoLightbox extends Component {
 	gotoNext (event) {
 		const { currentImage, images } = this.props;
 		const { imageLoaded } = this.state;
+		const videoBox = document.getElementById('videoPreview');
 
+		if (videoBox) videoBox.load();
 		if (!imageLoaded || currentImage === (images.length - 1)) return;
 
 		if (event) {
@@ -285,7 +289,7 @@ class VideoLightbox extends Component {
 							maxHeight: `calc(100vh - ${heightOffset})`,
 						}}
 				/> : (image.type === 'Video'
-					? <video controls>
+					? <video id="videoPreview" controls>
 						<source src={image.src} />
 					</video>
 					: <div></div>

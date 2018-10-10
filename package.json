@@ -2,7 +2,7 @@
   "name": "react-images-videos",
   "version": "0.5.19",
   "description": "A simple, responsive lightbox component for displaying an array of images & Videos with React.js",
-  "main": "lib/Lightbox.js",
+  "main": "lib/VideoLightbox.js",
   "jsnext:main": "dist/react-images.es.js",
   "author": "Joss Mackison",
   "license": "MIT",

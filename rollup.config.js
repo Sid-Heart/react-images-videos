@@ -30,7 +30,7 @@ const babelOptions = (production) => {
 
 export default [
 	{
-		input: 'src/Lightbox.js',
+		input: 'src/VideoLightbox.js',
 		output: {
 			file: path + '.es.js',
 			format: 'es',
@@ -39,7 +39,7 @@ export default [
 		plugins: [babel(babelOptions(false))],
 	},
 	{
-		input: 'src/Lightbox.js',
+		input: 'src/VideoLightbox.js',
 		output: {
 			name: name,
 			file: path + '.js',
@@ -50,7 +50,7 @@ export default [
 		plugins: [babel(babelOptions(false)), resolve()],
 	},
 	{
-		input: 'src/Lightbox.js',
+		input: 'src/VideoLightbox.js',
 		output: {
 			name: name,
 			file: path + '.min.js',

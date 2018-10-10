@@ -9,15 +9,10 @@ module.exports = {
 		build: {
 			description: 'clean dist directory and run all builds',
 			default: series(
-				rimraf('dist'),
 				rimraf('lib'),
-				concurrent.nps('build.rollup', 'build.babel', 'build.less')
+				concurrent.nps('build.babel')
 			),
-			rollup: 'rollup --config',
 			babel: 'babel src -d lib',
-      less: series(
-        'lessc examples/src/example.less examples/dist/example.css'
-      ),
 		},
 		publish: {
 			default: series(

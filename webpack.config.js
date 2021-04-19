@@ -28,19 +28,19 @@ module.exports = {
           options: { presets: ['react', 'env'] },
         }],
       },
-      { 
+      {
         test: /\.less$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: ['css-loader', 'less-loader'],
         })
       },
-      {   
+      {
         test: /\.html$/,
         use: [{
           loader: 'html-loader',
-        }]   
-      }, 
+        }]
+      },
     ],
   },
   resolve: {

@@ -25,8 +25,8 @@ export default class Sample extends React.Component {
   ...
   render() {
     return (
-      <Lightbox
-        images={[{ src: 'http://example.com/img1.jpg' }, { src: 'http://example.com/img2.jpg' }]}
+      <VideoLightbox
+        images={[{ type: 'Video', src: 'http://example.com/vid.mp4' }, { src: 'http://example.com/img2.jpg' }]}
         isOpen={this.state.lightboxIsOpen}
         onClickPrev={this.gotoPrevious}
         onClickNext={this.gotoNext}
@@ -40,7 +40,8 @@ export default class Sample extends React.Component {
 
 ## Demo & Examples
 
-Live demo: [jossmac.github.io/react-images](http://jossmac.github.io/react-images/)
+Live demo: [sid-heart.github.io/react-images](https://sid-heart.github.io/react-images-videos/)
+Forked From: [jossmac.github.io/react-images](http://jossmac.github.io/react-images/)
 
 To build the examples locally, run:
 
@@ -117,3 +118,4 @@ src  | string | undefined | Required
 srcSet  | array of strings or string | undefined | Optional
 caption  | string | undefined | Optional
 alt  | string | undefined | Optional
+type | string | Image | Image or Video

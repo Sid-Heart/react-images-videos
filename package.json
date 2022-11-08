@@ -27,7 +27,7 @@
     "babel-plugin-transform-react-remove-prop-types": "^0.4.10",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
-    "css-loader": "^0.28.7",
+    "css-loader": "^6.7.1",
     "eslint": "2.9.0",
     "eslint-config-keystone": "2.2.0",
     "eslint-plugin-react": "5.1.1",
